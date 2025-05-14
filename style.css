@@ -5,11 +5,34 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    height: 100vh;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 200vh;
   }
-  
+
+  body.login form {
+    background-color: #fff;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  body.register form {
+    background-color: #fff;
+    width: 400px;
+    margin: auto;
+    padding: 30px;
+  }
+   h1{
+    margin-bottom: 10px;
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+  }
+
+
   
   form {
     background-color: #ffffff;
@@ -20,21 +43,25 @@ body {
   }
   
   
-  h1 {
-    text-align: center;
-    color: #333;
-    justify-content: center;
-
-  }
   
   /* Input fields */
+  input[type="text"],
   input[type="email"],
-  input[type="password"] {
+  input[type="password"], 
+  input[type="date"],
+  input[type="number"],
+  input[type="color"],
+  input[type="file"],
+  input[type="radio"],
+  input[type="checkbox"],
+  select,
+  textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    
   }
   
   /* Checkbox */
