@@ -1,20 +1,16 @@
 <?php
-  $koneksi = mysqli_connect("localhost", "root", "", "mahasiswa");
 
-  if(!$koneksi){
-    die ("koneksi gagal".mysqli_connect_error());
-  }
+  require 'function.php';
+
   $query = "SELECT * FROM mahasiswa";
-  $result = mysqli_query($koneksi, $query);
+  
+  $rows = query($query); 
 
-  // ambil data dari sebuah object result
-
-  $mhs = mysqli_fetch_row($result);
-  // mysqli_fetch_row() = mengembalikan array numerik
-  // mysqli_fetch_assoc() = mengembalikan array associative
-  // mysqli_fetch_array() = mengembalikan keduanya
-  // mysqli_fetch_object()
-  var_dump($mhs -> nama);
+//   // ambil data dari sebuah object result
+//   $rows = [];
+//   while ($row = mysqli_fetch_assoc($result)) {
+//   var_dump($row);
+//   }
 ?>
 
 
@@ -33,28 +29,24 @@
     <table border="1px" cellspacing="0" cellpadding="10px">
         <tr>
             <th>No</th>
+            <th>foto</th>
             <th>Nama</th>
-            <th>Alamat</th>
-            <th>Aksi</th>
+            <th>Nim</th>
+            <th>Jurusan</th>
+            <th>No.Hp</th>
         </tr>
+        <?php
+        $i= 1;
+        foreach ($rows as $mhs) { ?>
         <tr>
-            <td>1</td>
-            <td>Joko</td>
-            <td>Solo</td>
-            <td>
-                <a href="edit.php">Edit</a> |
-                <a href="hapus.php">Hapus</a>
-            </td>
+            <td><?= $i ?></td>
+            <td><img src="images/<?= $mhs["foto"] ?>" width="60px"></td>
+            <td><?= $mhs["nama"] ?></td>
+            <td><?= $mhs["nim"] ?></td>
+            <td><?= $mhs["jurusan"] ?></td>
+            <td><?= $mhs["no_hp"] ?></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>bow</td>
-            <td>Jawa</td>
-            <td>
-                <a href="edit.php">Edit</a> |
-                <a href="hapus.php">Hapus</a>
-            </td>
-        </tr>
+         <?php $i++; } ?>
     </table>
 </body>
 </html>
