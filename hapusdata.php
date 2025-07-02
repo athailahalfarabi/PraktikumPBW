@@ -1,19 +1,19 @@
 <?php
     require 'function.php';
 
-    $id = $_GET('id');
+    $id = $_GET['id'];
 
     if(hapusdata($id) > 0)
     {
          echo "
         <script>
-            alert('Data berhasil disimpan');
-            document.location.href = '../datamahasiswa.php';
+            alert('Data berhasil dihapus');
+            document.location.href = 'datamahasiswa.php';
         </script>";
        } else {
             echo "
         <script>
-        alert('Data gagal disimpan');
+        alert('Data gagal dihapus');
         document.location.href = '../datamahasiswa.php';
         </script>";
         mysqli_error($koneksi);

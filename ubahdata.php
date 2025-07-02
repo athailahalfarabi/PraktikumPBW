@@ -1,10 +1,15 @@
 <?php
     require 'function.php'; 
+
+    $id = $_GET['id'];
+
+    $mhs =query("SELECT * FROM mahasiswa WHERE id = $id") [0];
+    
    
     if(isset($_POST['submit']))
     {
-    
-       if (tambahmahasiswa($_POST) > 0) {
+        
+       if (ubahdata($_POST, $id) > 0) {
         echo "
         <script>
             alert('Data berhasil disimpan');
@@ -29,24 +34,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data</title>
+    <title>Ubah Data</title>
 </head>
 <body>
-    <h1>Tambah Data Mahasiswa</h1>
+    <h1>Ubah Data Mahasiswa</h1>
     <form action=""method="post" enctype="multipart/form-data">
         <label for="nama" style="margin-top: 10px;">Nama : </label>
-        <input type="text" name="nama" id="name" placeholder="Nama Lengkap*" required/>
+        <input type="text" name="nama" id="name" placeholder="Nama Lengkap*" required value = "<?php echo $mhs["nama"]; ?>"/>
         <label for="kelas">Kelas : </label>
-        <input type="text" name="kelas" id="kelas" required/>
+        <input type="text" name="kelas" id="kelas" required value = "<?php echo $mhs["kelas"]; ?>"/>
         <label for="jurusan">Jurusan : </label>
-        <input type="text" name="jurusan" id="jurusan">
+        <input type="text" name="jurusan" id="jurusan" required value = "<?php echo $mhs["jurusan"]; ?>"/>
         <label for="no_hp">No HP : </label>
-        <input type="text" name="no_hp" id="no_hp">
+        <input type="text" name="no_hp" id="no_hp" required value = "<?php echo $mhs["no_hp"]; ?>"/>
          <label for="nim">NIM : </label>
-        <input type="text" name="nim" id="nim" required/>
+        <input type="text" name="nim" id="nim" required  value = "<?php echo $mhs["nim"]; ?>"/>
         <label for="foto">Foto : </label>
-        <input type="file" name="foto" id="foto" required/>
-        <Button type="submit" name="submit">Submit</Button>
+        <input type="file" name="foto" id="foto" >
+        <Button type="submit" name="submit">Ubah Data</Button>
     </form>
     <style>
     body {

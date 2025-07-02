@@ -25,15 +25,12 @@
 </head>
 <body>
     <h1>Data mahasiswa</h1>
-    <a href="Tambahdata.php"><Button style =
-    "background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;">Tambah data</Button></a>
+    <a href="Tambahdata.php"><Button >Tambah data</Button></a>
     <table border="1px" cellspacing="0" cellpadding="10px">
+        <from>
+            <input href="cari.php" type="text" name="cari" placeholder="Cari data mahasiswa" autocomplete="off">
+            <button type="submit">Cari</button>
+        </from>
         <tr>
             <th>No</th>
             <th>foto</th>
@@ -55,7 +52,7 @@
             <td><?= $mhs["nim"] ?></td>
             <td><?= $mhs["jurusan"] ?></td>
             <td><?= $mhs["no_hp"] ?></td>
-            <td><a href="hapus.php/?id=<?= $mhs["id"] ?>"><button style="background-color: red;">hapus</button></a></td>
+            <td><a href="/belajar/hapusdata.php/?id=<?= $mhs["id"] ?>" onclick="return confirm('yakin?')" ><button style="background-color: red;">hapus</button></a>|<a href="ubahdata.php?id=<?= $mhs["id"] ?>"><button style="background-color: green; margin-button: 12px">Edit</button></a></td>
         </tr>
          <?php $i++; } ?>
     </table>
